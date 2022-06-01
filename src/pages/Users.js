@@ -7,7 +7,7 @@ export const Users = () => {
 
     const users = ["Juan","Maria","Jose","Camila"];
 
-    return <ul>
+    return <ul className="users">
         {
             users.map((user, index)=> <li key={index + 1} onClick={()=>history.push(`/users/${user}`)}>{user}</li>)
         }

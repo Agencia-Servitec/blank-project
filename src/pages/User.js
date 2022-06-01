@@ -6,8 +6,12 @@ export const User = () => {
 
     const {userEmail}  = useParams();
 
-    return <div className="layout">
-        <h1>Page user profile</h1>
-        <Avatar avatarName={userEmail}/>
+    return <div className="user">
+        <div className="avatar-items">
+            <div className="avatar">
+                <h1>Page user profile</h1>
+                <Avatar avatarName={userEmail}/>
+            </div>
+        </div>
     </div>
 }

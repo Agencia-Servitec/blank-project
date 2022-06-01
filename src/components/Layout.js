@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import "../index.css";
+import "../styles/index.css";
 
 export const Layout = (props) => {
-    return <div>
+    return <div className="layout">
         <div className="header">
             <ul>
                 <li style={{marginRight: "1rem"}}>
@@ -21,7 +21,7 @@ export const Layout = (props) => {
             {props.children}
         </div>
         <div className="footer">
-            <p>Todos los derechos</p>
+            <p>Todos los derechos reservados - Agencia Servitec</p>
         </div>
     </div>
 }
