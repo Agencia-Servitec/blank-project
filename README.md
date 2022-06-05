@@ -1,3 +1,3 @@
 ### Crear un nuevo proyecto ReactJs
-`npx create-react-App <nombre-proyecto>`
+`npx create-react-app <nombre-proyecto>`
 
