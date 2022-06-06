@@ -6,3 +6,7 @@
 
 ### Remover dependecias con yarn
 `yarn remove <nombre-dependencia>`
+
+
+#### Crear un componente rapido
+`rsc`
