@@ -10,3 +10,6 @@
 
 #### Crear un componente rapido
 `rsc`
+
+#### deploy a hosting
+`yarn deploy:hosting -P <default || dev>`
