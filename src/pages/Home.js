@@ -1,16 +1,61 @@
-import {useState} from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { SearchGift } from "../components/home/SearchGift";
+import { CardGift } from "../components/home/CardGift";
+
+const apiUrL =
+  "https://api.giphy.com/v1/gifs/search?api_key=yubnbZvSyRw75BEY0eFOd1XQ9YLnxTmA";
 
 export const Home = () => {
+  const [gifts, setGifts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("girl");
 
-    const [count, setCount] = useState(0);
+  useEffect(() => {
+    initialize();
+  }, []);
 
-    return <div>
-        <h1>Home page</h1>
-        <br/>
+  const initialize = async () => {
+    setLoading(true);
+    const response = await fetch(`${apiUrL}&q=${search || "girl"}&limit=10`);
+    const jsonData = await response.json();
+    setGifts(jsonData.data);
+    setLoading(false);
+  };
 
-        <h2>{count}</h2>
+  return (
+    <Container>
+      <h1>Gifts PE</h1>
+      <br />
 
-        <br/>
-        <button onClick={() => setCount(prevState => prevState + 1)}>Sumar</button>
-    </div>
-}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          initialize();
+        }}
+      >
+        <SearchGift onSetSearch={setSearch} />
+      </form>
+
+      <WrapperCards>
+        {loading
+          ? "Loading..."
+          : gifts.map((gift, index) => <CardGift key={index} gift={gift} />)}
+      </WrapperCards>
+    </Container>
+  );
+};
+
+const Container = styled.div`
+  h1 {
+    text-align: center;
+  }
+`;
+
+const WrapperCards = styled.div`
+  width: 100%;
+  height: auto;
+  margin: 1.7rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+`;
