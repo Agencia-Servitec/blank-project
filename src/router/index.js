@@ -1,45 +1,78 @@
-import {Route, Switch} from 'react-router-dom';
-import {Home} from '../pages/Home'
-import {Nosotros} from '../pages/Nosotros'
-import {User} from "../pages/User";
-import {Users} from "../pages/Users";
-import {Layout} from "../components/Layout";
-import {Redirect} from "react-router";
-import {Page404} from "../components/Page404";
+import { Route, Routes } from "react-router-dom";
+import { BaseLayout } from "../components/public";
+import { Login, Page404 } from "../pages";
+import { AdminLayout } from "../components/admin";
+import { FlipBookPage, FlipBookPages, User, Users } from "../pages/admin";
+import { PrivateRoute } from "./PrivateRoute";
 
-
-export const Router = () => {
-    return <Switch>
-        <Route
-            exact
-            path="/"
-            render={() => <Layout> <Home/> </Layout>}
-        />
-        <Route
-            exact
-            path="/nosotros"
-        >
-            <Layout>
-                <Nosotros/>
-            </Layout>
-        </Route>
-        <Route
-            exact
-            path="/users"
-        >
-            <Layout>
-                <Users/>
-            </Layout>
-        </Route>
-        <Route
-            exact
-            path="/users/:userEmail"
-        >
-            <Layout>
-                <User/>
-            </Layout>
-        </Route>
-        <Route path="*" component={Page404} />
-        <Redirect to="/" />
-    </Switch>
-}
+export const Router = () => (
+  <Routes>
+    <Route
+      exact
+      path="/"
+      element={
+        <AdminLayout>
+          <FlipBookPages />
+        </AdminLayout>
+      }
+    />
+    <Route exact path="/login" element={<Login />} />
+    {/********************ADMIN ROUTES****************/}
+    <Route
+      exact
+      path="/admin/users"
+      element={
+        <AdminLayout>
+          <Users />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/users/:userId"
+      element={
+        <PrivateRoute>
+          <AdminLayout>
+            <User />
+          </AdminLayout>
+        </PrivateRoute>
+      }
+    />
+    <Route
+      exact
+      path="/admin"
+      element={
+        <AdminLayout>
+          <FlipBookPages />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/flip-book-pages"
+      element={
+        <AdminLayout>
+          <FlipBookPages />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/flip-book-pages/:flipBookPageId"
+      element={
+        <AdminLayout>
+          <FlipBookPage />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="*"
+      element={
+        <BaseLayout>
+          <Page404 />
+        </BaseLayout>
+      }
+    />
+  </Routes>
+);

@@ -1,11 +1,12 @@
-import React from 'react';
-import {Router} from './router';
-import {BrowserRouter} from 'react-router-dom';
+import { Router } from "./router";
+import { AuthenticationProvider, VersionProvider } from "./providers";
 
-export const App = () => {
-    return (
-        <BrowserRouter>
-            <Router/>
-        </BrowserRouter>
-    );
-};
+const App = () => (
+  <VersionProvider>
+    <AuthenticationProvider>
+      <Router />
+    </AuthenticationProvider>
+  </VersionProvider>
+);
+
+export default App;

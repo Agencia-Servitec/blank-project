@@ -1,0 +1,52 @@
+{
+  "common": {
+    "app-data": {
+      "name": "Blank prokect",
+      "emails": {
+        "contact": "blank@blank.com"
+      },
+      "numbers": {
+        "phone": ["- - -", "- - -"],
+        "wsp": ["- - -", "- - -"]
+      },
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/blank",
+        "instagram": "https://www.instagram.com/blank/",
+        "whatsapp": "https://api.whatsapp.com/send/?phone=+51950425945&text=Estoy+interesado+en+su+producto+%2F+servicio&app_absent=0",
+        "messenger": "https://m.me/blank"
+      },
+      "directions": {
+        "local1": "Av. Guardia Civil 257 – Chorrillos",
+        "local2": "Av. Huaylas 2691 – Chorrillos"
+      },
+      "poweredBy": {
+        "name": "AgenciaServitec",
+        "webUrl": "https://agenciaservitec.com"
+      }
+    }
+  },
+  "development": {
+    "version": "0.0.1",
+    "firebaseApp": {
+      "apiKey": "AIzaSyB7889SFRks2Xv06egWw2XFrKA5WPQtUxw",
+      "authDomain": "blank-project-367115.firebaseapp.com",
+      "projectId": "blank-project-367115",
+      "storageBucket": "blank-project-367115.appspot.com",
+      "messagingSenderId": "181290232481",
+      "appId": "1:181290232481:web:695f78b16c9c75ed889ee0"
+    },
+    "buckets": {}
+  },
+  "production": {
+    "version": "0.0.1",
+    "firebaseApp": {
+      "apiKey": "AIzaSyB7889SFRks2Xv06egWw2XFrKA5WPQtUxw",
+      "authDomain": "blank-project-367115.firebaseapp.com",
+      "projectId": "blank-project-367115",
+      "storageBucket": "blank-project-367115.appspot.com",
+      "messagingSenderId": "181290232481",
+      "appId": "1:181290232481:web:695f78b16c9c75ed889ee0"
+    },
+    "buckets": {}
+  }
+}

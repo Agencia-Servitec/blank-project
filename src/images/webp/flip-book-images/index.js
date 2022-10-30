@@ -1,0 +1,23 @@
+
+export { default as Tapa} from './tapa.webp';
+export { default as Portada} from './portada.webp';
+export { default as TapaUltima} from './newportada.webp';
+export { default as UltimaCara} from './tapaatras.webp';
+export { default as ImgCibertex} from './CIBERTEC.webp';
+export {default as image1} from './1.webp';
+export {default as image2} from './2.webp';
+export {default as image3} from './3.webp';
+export {default as image4} from './4.webp';
+export {default as image5} from './5.webp';
+export {default as image6} from './6.webp';
+export {default as image7} from './7.webp';
+export {default as image8} from './8.webp';
+export {default as image9} from './9.webp';
+export {default as image10} from './10.webp';
+export {default as image11} from './11.webp';
+export {default as image12} from './12.webp';
+export {default as image13} from './13.webp';
+export {default as image14} from './14.webp';
+export {default as image15} from './15.webp';
+export {default as image16} from './16.webp';
+export {default as image17} from './17.webp';
