@@ -91,7 +91,7 @@ export const Customers = () => {
                 ]}
               >
                 <List.Item.Meta
-                  avatar={<Avatar src={customer.picture} />}
+                  avatar={<Avatar src="https://www.blexar.com/avatar.png" />}
                   title={
                     <Link to={`/admin/customers/${customer.id}`}>
                       <h3 className="item-link">{customer.firstName}</h3>
