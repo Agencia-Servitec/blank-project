@@ -16,13 +16,17 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 import { useGlobalData } from "../../../providers";
 import { firestore } from "../../../firebase";
+import { Link } from "react-router-dom";
 
 const { Title, Text } = Typography;
 
 export const Customers = () => {
   const { isMobile } = useDevice();
   const navigate = useNavigate();
-  const { customers } = useGlobalData();
+  const { customers, providers, visitors } = useGlobalData();
+
+  console.log("providers->", providers);
+  console.log("visitors->", visitors);
 
   const onNavigate = (url) => navigate(url);
 
@@ -91,8 +95,11 @@ export const Customers = () => {
               >
                 <List.Item.Meta
                   avatar={<Avatar src={customer.picture} />}
-                  title={<a href="https://ant.design">{customer.firstName}</a>}
-                  description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                  title={
+                    <Link to={`/admin/customers/${customer.id}`}>
+                      <h3 className="item-link">{customer.firstName}</h3>
+                    </Link>
+                  }
                 />
               </List.Item>
             )}

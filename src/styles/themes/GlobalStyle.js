@@ -72,7 +72,7 @@ const global = css`
   }
 
   .item-link {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.info};
     cursor: pointer;
     text-decoration: none;
   }
