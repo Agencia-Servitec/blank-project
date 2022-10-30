@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { BaseLayout } from "../components/public";
-import { Customer, Login, Page404 } from "../pages";
+import { Customer, Login, Page404, Visitor } from "../pages";
 import { AdminLayout } from "../components/admin";
-import { FlipBookPage, FlipBookPages, User, Users, Customers } from "../pages";
+import { FlipBookPage, FlipBookPages, User, Users, Customers,Visitors } from "../pages";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const Router = () => (
@@ -65,6 +65,24 @@ export const Router = () => (
         </AdminLayout>
       }
     />
+      <Route
+          exact
+          path="/admin/visitors"
+          element={
+              <AdminLayout>
+                  <Visitors />
+              </AdminLayout>
+          }
+      />
+      <Route
+          exact
+          path="/admin/visitors/:visitorId"
+          element={
+              <AdminLayout>
+                  <Visitor />
+              </AdminLayout>
+          }
+      />
     <Route
       exact
       path="/admin/customers"
