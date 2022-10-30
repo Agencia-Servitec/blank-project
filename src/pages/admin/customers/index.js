@@ -18,15 +18,12 @@ import { useGlobalData } from "../../../providers";
 import { firestore } from "../../../firebase";
 import { Link } from "react-router-dom";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export const Customers = () => {
   const { isMobile } = useDevice();
   const navigate = useNavigate();
-  const { customers, providers, visitors } = useGlobalData();
-
-  console.log("providers->", providers);
-  console.log("visitors->", visitors);
+  const { customers } = useGlobalData();
 
   const onNavigate = (url) => navigate(url);
 
