@@ -9,6 +9,7 @@ import {
   faSignOut,
   faUsers,
   faUsersRectangle,
+  faUsersSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import { version } from "../../../firebase";
 import { useAuthentication } from "../../../providers";
@@ -88,6 +89,16 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
         </Menu.Item>
         <Menu.Item
           key="5"
+          icon={<FontAwesomeIcon icon={faUsersSlash} />}
+          onClick={() => {
+            navigateTo("/admin/visitors");
+            setIsVisibleDrawer(false);
+          }}
+        >
+          Visitantes
+        </Menu.Item>
+        <Menu.Item
+          key="6"
           icon={<FontAwesomeIcon icon={faSignOut} />}
           onClick={async () => {
             await logout();

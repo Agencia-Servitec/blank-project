@@ -7,7 +7,7 @@ import { includes } from "lodash";
 
 const hostName = window.location.hostname;
 
-const hostsProduction = ["cobiene-mil-pe.web.app", "cobiene.mil.pe"];
+const hostsProduction = ["blank-project-367115.web.app"];
 
 const currentEnvironment = includes(hostsProduction, hostName)
   ? "production"

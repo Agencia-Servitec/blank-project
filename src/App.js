@@ -1,10 +1,16 @@
 import { Router } from "./router";
-import { AuthenticationProvider, VersionProvider } from "./providers";
+import {
+  AuthenticationProvider,
+  GlobalDataProvider,
+  VersionProvider,
+} from "./providers";
 
 const App = () => (
   <VersionProvider>
     <AuthenticationProvider>
-      <Router />
+      <GlobalDataProvider>
+        <Router />
+      </GlobalDataProvider>
     </AuthenticationProvider>
   </VersionProvider>
 );
