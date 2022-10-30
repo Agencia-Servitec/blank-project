@@ -14,8 +14,6 @@ export const VersionProvider = ({ children }) => {
   const [settingDefault, settingDefaultLoading, settingDefaultError] =
     useDocumentData(firestore.collection("settings").doc("default"));
 
-  console.log("settingDefault->", settingDefault);
-
   const onClickRefresh = () => document.location.reload();
 
   if (settingDefaultLoading) return spinLoaderFixed();
