@@ -79,7 +79,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Clientes
         </Menu.Item>
         <Menu.Item
-          key="8"
+          key="4"
           icon={<FontAwesomeIcon icon={faUsersRectangle} />}
           onClick={() => {
             navigateTo("/admin/providers");
@@ -89,7 +89,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Proveedores
         </Menu.Item>
         <Menu.Item
-          key="4"
+          key="5"
           icon={<FontAwesomeIcon icon={faUsersRectangle} />}
           onClick={() => {
             navigateTo("/admin/posts");
@@ -99,7 +99,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Posts
         </Menu.Item>
         <Menu.Item
-          key="5"
+          key="6"
           icon={<FontAwesomeIcon icon={faUsersSlash} />}
           onClick={() => {
             navigateTo("/admin/visitors");
@@ -109,7 +109,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Visitantes
         </Menu.Item>
         <Menu.Item
-          key="6"
+          key="7"
           icon={<FontAwesomeIcon icon={faPhotoFilm} />}
           onClick={() => {
             navigateTo("/admin/photos");
@@ -119,7 +119,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Fotos
         </Menu.Item>
         <Menu.Item
-          key="7"
+          key="8"
           icon={<FontAwesomeIcon icon={faUsersSlash} />}
           onClick={() => {
             navigateTo("/admin/usersApi");
@@ -129,7 +129,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           UsersApi
         </Menu.Item>
         <Menu.Item
-          key="8"
+          key="9"
           icon={<FontAwesomeIcon icon={faSignOut} />}
           onClick={async () => {
             await logout();
