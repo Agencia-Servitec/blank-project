@@ -41,7 +41,7 @@ export const CustomersIntegration = () => {
 
       notification({ type: "success" });
     } catch (e) {
-      console.log("ErroRemoveCustomer:", e);
+      console.log("ErrorRemoveCustomer:", e);
       notification({ type: "error" });
     }
   };
