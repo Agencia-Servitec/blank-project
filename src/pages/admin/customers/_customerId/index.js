@@ -15,7 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { firestore } from "../../../../firebase";
 import { useGlobalData } from "../../../../providers";
 
-export const Customer = () => {
+export const CustomerIntegration = () => {
   const navigate = useNavigate();
   const { customerId } = useParams();
   const { customers } = useGlobalData();
@@ -39,22 +39,9 @@ export const Customer = () => {
     setCustomer(customer_);
   };
 
-  const schema = yup.object({
-    firstName: yup.string().required(),
-  });
-
-  const {
-    formState: { errors },
-    handleSubmit,
-    control,
-    reset,
-  } = useForm({ resolver: yupResolver(schema) });
-
-  const { error, required } = useFormUtils({ errors, schema });
-
   const onGoBack = () => navigate(-1);
 
-  const onSubmitCustomer = async (formData) => {
+  const onSaveCustomer = async (formData) => {
     try {
       setSavingCustomer(true);
       await firestore
@@ -83,11 +70,37 @@ export const Customer = () => {
     id: customerId,
   });
 
+  return (
+    <Customer
+      customer={customer}
+      savingCustomer={savingCustomer}
+      onGoBack={onGoBack}
+      onSaveCustomer={onSaveCustomer}
+    />
+  );
+};
+
+const Customer = ({ customer, savingCustomer, onGoBack, onSaveCustomer }) => {
+  const schema = yup.object({
+    firstName: yup.string().required(),
+  });
+
+  const {
+    formState: { errors },
+    handleSubmit,
+    control,
+    reset,
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const { error, required } = useFormUtils({ errors, schema });
+
   useEffect(() => {
     reset({
       firstName: customer?.firstName || "",
     });
   }, [customer]);
+
+  const onSubmitCustomer = (formData) => onSaveCustomer(formData);
 
   return (
     <>

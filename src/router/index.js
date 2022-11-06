@@ -1,15 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import { BaseLayout } from "../components/public";
-import { Customer, Login, Page404 } from "../pages";
 import { AdminLayout } from "../components/admin";
+import { PrivateRoute } from "./PrivateRoute";
 import {
   FlipBookPage,
   FlipBookPages,
   User,
   Users,
   CustomersIntegration,
+  CustomerIntegration,
+  Login,
+  Page404,
 } from "../pages";
-import { PrivateRoute } from "./PrivateRoute";
 
 export const Router = () => (
   <Routes>
@@ -85,7 +87,7 @@ export const Router = () => (
       path="/admin/customers/:customerId"
       element={
         <AdminLayout>
-          <Customer />
+          <CustomerIntegration />
         </AdminLayout>
       }
     />
