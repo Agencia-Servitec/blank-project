@@ -15,7 +15,7 @@ import { useDefaultFirestoreProps, useFormUtils } from "../../../../hooks";
 import { firestore } from "../../../../firebase";
 import { useGlobalData } from "../../../../providers";
 
-export const Provider = () => {
+export const ProviderIntegration = () => {
   const navigate = useNavigate();
   const onGoBack = () => navigate(-1);
   const { providerId } = useParams();
@@ -42,20 +42,7 @@ export const Provider = () => {
     setProvider(provider_);
   };
 
-  const schema = yup.object({
-    firstName: yup.string().required(),
-  });
-
-  const {
-    control,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
-
-  const { error, required } = useFormUtils({ errors, schema });
-
-  const onSubmitProvider = async (formData) => {
+  const onSaveProvider = async (formData) => {
     try {
       setsavingProvider(true);
       await firestore
@@ -83,11 +70,37 @@ export const Provider = () => {
     id: providerId,
   });
 
+  return (
+    <Provider
+      provider={provider}
+      savingProvider={savingProvider}
+      onSaveProvider={onSaveProvider}
+      onGoBack={onGoBack}
+    />
+  );
+};
+
+const Provider = ({ provider, savingProvider, onSaveProvider, onGoBack }) => {
+  const schema = yup.object({
+    firstName: yup.string().required(),
+  });
+
+  const {
+    control,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const { error, required } = useFormUtils({ errors, schema });
+
   useEffect(() => {
     reset({
       firstName: provider?.firstName || "",
     });
   }, [provider]);
+
+  const onSubmitProvider = (formData) => onSaveProvider(formData);
 
   return (
     <>
@@ -124,7 +137,8 @@ export const Provider = () => {
                   disabled={savingProvider}
                   loading={savingProvider}
                 >
-                  {providerId === "new" ? "Guardar" : "Actualizar"}
+                  {/*{providerId === "new" ? "Crear" : "Actualizar"}*/}
+                  Guardar
                 </Button>
               </Col>
             </Row>
