@@ -10,37 +10,36 @@ import { useDevice } from "../../../hooks";
 import List from "antd/lib/list";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Avatar from "antd/lib/avatar";
+import { useApiUsersApiGet } from "../../../api";
 import { Link } from "react-router-dom";
 
 export const UsersIntegration = () => {
   const { isMobile } = useDevice();
 
+  const { getUsersApi, getUsersApiLoading, getUsersApiError } =
+    useApiUsersApiGet();
+
   const [usersApi, setUsersApi] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    getUsersApiError && notification({ type: "error" });
+  }, [getUsersApiError]);
+
   const fetchUsers = async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-
-      if (!response.ok) throw Error("error_get_users_api");
-
-      const data = await response.json();
-      setUsersApi(data);
-    } catch (e) {
-      console.log(e);
-
-      notification({ type: "error" });
-    } finally {
-      setLoading(false);
-    }
+    const usersApi = await getUsersApi();
+    setUsersApi(usersApi);
   };
-  return <Users usersApi={usersApi} loading={loading} isMobile={isMobile} />;
+  return (
+    <Users
+      usersApi={usersApi}
+      loading={getUsersApiLoading}
+      isMobile={isMobile}
+    />
+  );
 };
 
 const Users = ({ usersApi, loading, isMobile }) => {

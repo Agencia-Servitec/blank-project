@@ -5,3 +5,4 @@ export * from "./useApiUserPut";
 export * from "./useApiUserPatch";
 export * from "./useApiPhotosGet";
 export * from "./useApiPostsGet";
+export * from "./useApiUsersApiGet";
