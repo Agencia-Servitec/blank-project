@@ -15,6 +15,9 @@ import {
     VisitorIntegration,
     UsersIntegration,
   PhotosIntegration,
+    PostsIntegration,
+    ProviderIntegration,
+    ProvidersIntegration,
 } from "../pages";
 
 export const Router = () => (
@@ -128,6 +131,33 @@ export const Router = () => (
       element={
         <AdminLayout>
           <PhotosIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/providers"
+      element={
+        <AdminLayout>
+          <ProvidersIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/providers/:providerId"
+      element={
+        <AdminLayout>
+          <ProviderIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/posts"
+      element={
+        <AdminLayout>
+          <PostsIntegration />
         </AdminLayout>
       }
     />

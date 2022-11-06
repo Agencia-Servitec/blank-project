@@ -79,7 +79,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Clientes
         </Menu.Item>
         <Menu.Item
-          key="4"
+          key="8"
           icon={<FontAwesomeIcon icon={faUsersRectangle} />}
           onClick={() => {
             navigateTo("/admin/providers");
@@ -87,6 +87,16 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           }}
         >
           Proveedores
+        </Menu.Item>
+        <Menu.Item
+          key="4"
+          icon={<FontAwesomeIcon icon={faUsersRectangle} />}
+          onClick={() => {
+            navigateTo("/admin/posts");
+            setIsVisibleDrawer(false);
+          }}
+        >
+          Posts
         </Menu.Item>
         <Menu.Item
           key="5"
