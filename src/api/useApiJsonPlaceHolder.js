@@ -1,11 +1,11 @@
-import { apiUrl } from "../firebase";
+import { apiJsonPlaceHolder } from "../firebase";
 import useFetch from "use-http";
 
-export const useApi = (pathname, deps = []) => {
+export const useApiJsonPlaceHolder = (pathname, deps = []) => {
   // correct parameters of cache policy
   const options = {
     cachePolicy: "no-cache",
   };
 
-  return useFetch(apiUrl + pathname, options, deps);
+  return useFetch(apiJsonPlaceHolder + pathname, options, deps);
 };

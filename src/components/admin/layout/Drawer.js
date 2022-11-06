@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookOpen,
   faHome,
+  faPhotoFilm,
   faSignOut,
   faUsers,
   faUsersRectangle,
@@ -89,13 +90,13 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
         </Menu.Item>
         <Menu.Item
           key="5"
-          icon={<FontAwesomeIcon icon={faUsersSlash} />}
+          icon={<FontAwesomeIcon icon={faPhotoFilm} />}
           onClick={() => {
-            navigateTo("/admin/visitors");
+            navigateTo("/admin/photos");
             setIsVisibleDrawer(false);
           }}
         >
-          Visitantes
+          Fotos
         </Menu.Item>
         <Menu.Item
           key="6"

@@ -11,6 +11,7 @@ import {
   CustomerIntegration,
   Login,
   Page404,
+  PhotosIntegration,
 } from "../pages";
 
 export const Router = () => (
@@ -88,6 +89,15 @@ export const Router = () => (
       element={
         <AdminLayout>
           <CustomerIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/photos"
+      element={
+        <AdminLayout>
+          <PhotosIntegration />
         </AdminLayout>
       }
     />
