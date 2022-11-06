@@ -20,7 +20,7 @@ import { firestore } from "../../../firebase";
 
 const { Title } = Typography;
 
-export const Providers = () => {
+export const ProvidersIntegration = () => {
   const { isMobile } = useDevice();
   const { providers } = useGlobalData();
   const navigate = useNavigate();
@@ -59,6 +59,24 @@ export const Providers = () => {
     }
   };
 
+  return (
+    <Providers
+      providers={providers}
+      onAddProvider={onAddProvider}
+      onEditProvider={onEditProvider}
+      isMobile={isMobile}
+      onConfirmRemoveProvider={onConfirmRemoveProvider}
+    />
+  );
+};
+
+const Providers = ({
+  providers,
+  onAddProvider,
+  onEditProvider,
+  onConfirmRemoveProvider,
+  isMobile,
+}) => {
   return (
     <>
       <Row gutter={[16, 16]}>
