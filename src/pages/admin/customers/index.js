@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 
-export const Customers = () => {
+export const CustomersIntegration = () => {
   const { isMobile } = useDevice();
   const navigate = useNavigate();
   const { customers } = useGlobalData();
@@ -52,6 +52,24 @@ export const Customers = () => {
       onOk: async () => await onRemoveCustomer(customerId),
     });
 
+  return (
+    <Customers
+      isMobile={isMobile}
+      customers={customers}
+      onAddCustomer={onAddCustomer}
+      onEditCustomer={onEditCustomer}
+      onConfirmRemoveCustomer={onConfirmRemoveCustomer}
+    />
+  );
+};
+
+const Customers = ({
+  isMobile,
+  customers,
+  onAddCustomer,
+  onEditCustomer,
+  onConfirmRemoveCustomer,
+}) => {
   return (
     <>
       <Row gutter={[16, 16]}>
