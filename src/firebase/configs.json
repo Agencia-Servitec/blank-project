@@ -35,7 +35,9 @@
       "messagingSenderId": "181290232481",
       "appId": "1:181290232481:web:695f78b16c9c75ed889ee0"
     },
-    "buckets": {}
+    "buckets": {},
+    "apiUrl": "-",
+    "apiJsonPlaceHolder": "https://jsonplaceholder.typicode.com"
   },
   "production": {
     "version": "0.0.1",
@@ -47,6 +49,8 @@
       "messagingSenderId": "181290232481",
       "appId": "1:181290232481:web:695f78b16c9c75ed889ee0"
     },
-    "buckets": {}
+    "buckets": {},
+    "apiUrl": "-",
+    "apiJsonPlaceHolder": "https://jsonplaceholder.typicode.com"
   }
 }

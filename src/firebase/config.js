@@ -32,7 +32,7 @@ Object.keys(currentConfig.buckets).forEach((bucketKey) => {
 const common = configs.common;
 const contactData = configs.common.contactData;
 
-const { version } = currentConfig;
+const { version, apiJsonPlaceHolder } = currentConfig;
 
 console.log(currentEnvironment, ":", version);
 
@@ -48,4 +48,5 @@ export {
   firestore,
   imageResizes,
   buckets,
+  apiJsonPlaceHolder,
 };
