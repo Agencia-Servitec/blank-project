@@ -4,3 +4,5 @@ export * from "./users";
 export * from "./users/_userId";
 export * from "./customers";
 export * from "./customers/_customerId";
+export * from "./providers";
+export * from "./providers/_providerId";
