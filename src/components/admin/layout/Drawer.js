@@ -100,6 +100,16 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
         </Menu.Item>
         <Menu.Item
           key="6"
+          icon={<FontAwesomeIcon icon={faUsersSlash} />}
+          onClick={() => {
+            navigateTo("/admin/usersApi");
+            setIsVisibleDrawer(false);
+          }}
+        >
+          UsersApi
+        </Menu.Item>
+        <Menu.Item
+          key="7"
           icon={<FontAwesomeIcon icon={faSignOut} />}
           onClick={async () => {
             await logout();

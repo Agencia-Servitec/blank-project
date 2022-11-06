@@ -11,6 +11,9 @@ import {
   CustomerIntegration,
   Login,
   Page404,
+    VisitorsIntegration,
+    VisitorIntegration,
+    UsersIntegration,
   PhotosIntegration,
 } from "../pages";
 
@@ -71,6 +74,33 @@ export const Router = () => (
       element={
         <AdminLayout>
           <FlipBookPage />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/visitors"
+      element={
+        <AdminLayout>
+          <VisitorsIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/usersApi"
+      element={
+        <AdminLayout>
+          <UsersIntegration />
+        </AdminLayout>
+      }
+    />
+    <Route
+      exact
+      path="/admin/visitors/:visitorId"
+      element={
+        <AdminLayout>
+          <VisitorIntegration />
         </AdminLayout>
       }
     />
