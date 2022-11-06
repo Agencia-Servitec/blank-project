@@ -67,16 +67,16 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
         >
           Usuarios
         </Menu.Item>*/}
-          <Menu.Item
-              key="3"
-              icon={<FontAwesomeIcon icon={faUsers} />}
-              onClick={() => {
-                  navigateTo("/admin/visitors");
-                  setIsVisibleDrawer(false);
-              }}
-          >
-              Visitas
-          </Menu.Item>
+        <Menu.Item
+          key="3"
+          icon={<FontAwesomeIcon icon={faUsers} />}
+          onClick={() => {
+            navigateTo("/admin/visitors");
+            setIsVisibleDrawer(false);
+          }}
+        >
+          Visitas
+        </Menu.Item>
         <Menu.Item
           key="4"
           icon={<FontAwesomeIcon icon={faUsers} />}
@@ -109,6 +109,16 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
         </Menu.Item>
         <Menu.Item
           key="7"
+          icon={<FontAwesomeIcon icon={faUsersSlash} />}
+          onClick={() => {
+            navigateTo("/admin/usersApi");
+            setIsVisibleDrawer(false);
+          }}
+        >
+          UsersApi
+        </Menu.Item>
+        <Menu.Item
+          key="8"
           icon={<FontAwesomeIcon icon={faSignOut} />}
           onClick={async () => {
             await logout();
