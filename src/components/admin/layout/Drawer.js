@@ -78,7 +78,7 @@ export const Drawer = ({ isVisibleDrawer, setIsVisibleDrawer, navigateTo }) => {
           Clientes
         </Menu.Item>
         <Menu.Item
-          key="4"
+          key="8"
           icon={<FontAwesomeIcon icon={faUsersRectangle} />}
           onClick={() => {
             navigateTo("/admin/providers");
