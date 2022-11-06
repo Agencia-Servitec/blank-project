@@ -31,10 +31,10 @@ export const UsersIntegration = () => {
       if (!response.ok) throw Error("error_get_users_api");
 
       const data = await response.json();
-      console.log("UsersApi ->", data);
       setUsersApi(data);
     } catch (e) {
       console.log(e);
+
       notification({ type: "error" });
     } finally {
       setLoading(false);
