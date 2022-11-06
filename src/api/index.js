@@ -4,3 +4,4 @@ export * from "./useApiUserPost";
 export * from "./useApiUserPut";
 export * from "./useApiUserPatch";
 export * from "./useApiPhotosGet";
+export * from "./useApiUsersApiGet";
