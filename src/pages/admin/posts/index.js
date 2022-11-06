@@ -4,62 +4,51 @@ import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 import List from "antd/lib/list";
 import { useDevice } from "../../../hooks";
+import { UseApiPostsGet } from "../../../api";
 
 export const PostsIntegration = () => {
   const { isMobile } = useDevice();
+
+  const { getPosts, getPostsLoading, getPostsError } = UseApiPostsGet();
+
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  const url = "https://jsonplaceholder.typicode.com/posts?&_limit=10";
+  useEffect(() => {
+    getPostsError && notification({ type: "error" });
+  }, [getPostsError]);
 
   const fetchPosts = async () => {
-    try {
-      const resp = await fetch(url);
-
-      if (!resp.ok) throw Error("error_get_posts:");
-
-      const data = await resp.json();
-
-      setPosts(data);
-    } catch (e) {
-      console.log("ErrorFetchPosts->", e);
-      notification({ type: "error" });
-    } finally {
-      setLoading(false);
-    }
+    const _posts = await getPosts();
+    setPosts(_posts);
   };
 
-  // console.log("post", posts);
-
-  return <Posts postsData={posts} loading={loading} isMobile={isMobile} />;
-};
-
-const Posts = ({ postsData = [], loading, isMobile }) => {
-  // console.log("postsData->", postsData);
-
   return (
-    <>
-      <Row>
-        <Col span={24}>
-          <List
-            className="demo-loadmore-list"
-            loading={loading}
-            itemLayout={isMobile ? "vertical" : "horizontal"}
-            dataSource={postsData}
-            renderItem={(postData) => (
-              <List.Item>
-                <List.Item.Meta
-                  title={<h3 className="item-link">{postData.title}</h3>}
-                />
-              </List.Item>
-            )}
-          />
-        </Col>
-      </Row>
-    </>
+    <Posts isMobile={isMobile} postsData={posts} loading={getPostsLoading} />
   );
 };
+
+const Posts = ({ postsData = [], loading, isMobile }) => (
+  <>
+    <Row>
+      <Col span={24}>
+        <List
+          className="demo-loadmore-list"
+          loading={loading}
+          itemLayout={isMobile ? "vertical" : "horizontal"}
+          dataSource={postsData}
+          renderItem={(postData) => (
+            <List.Item>
+              <List.Item.Meta
+                title={<h3 className="item-link">{postData.title}</h3>}
+              />
+            </List.Item>
+          )}
+        />
+      </Col>
+    </Row>
+  </>
+);
